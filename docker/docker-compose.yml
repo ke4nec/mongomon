@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+  agent:
+    image: agent:latest
+    container_name: agent
+    volumes:
+      - ../conf/:/mongomon/conf
+    restart: always
+    networks:
+      - solar
+networks:
+  solar:
+    external:
+      name: solar_default

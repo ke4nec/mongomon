@@ -74,6 +74,9 @@ f.close()
 
 endpoint = y["endpoint"]
 
+if y.has_key("falcon_server"):
+    falcon_client = y["falcon_server"]
+
 mongodb_items = y["items"]
 
 for mongodb_ins in mongodb_items:

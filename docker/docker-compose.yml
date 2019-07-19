@@ -6,8 +6,8 @@ services:
     volumes:
       - ../conf/:/mongomon/conf
     restart: always
-    stdin_open: true
-    tty: true
+    #stdin_open: true
+    #tty: true
     networks:
       - solar
 networks:

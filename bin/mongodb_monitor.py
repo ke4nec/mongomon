@@ -67,7 +67,7 @@ mongodb_counter_metric = ["asserts_msg",
 # mongodb_hostname = socket.gethostname()
 
 f = open("../conf/mongomon.conf")
-y = yaml.load(f)
+y = yaml.load(f, Loader=yaml.FullLoader)
 f.close()
 
 endpoint = y["endpoint"]

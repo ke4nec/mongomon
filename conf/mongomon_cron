@@ -1,3 +1,2 @@
 # mongodb monitor cron 
-#*/1 * * * *  (cd /path/to/mongomon/bin/ && python  mongodb_monitor.py  > /dev/null)
-*/1 * * * * python /mongomon/bin/mongodb_monitor.py > /dev/null
+*/1 * * * * (cd /mongomon/bin/ && python /mongomon/bin/mongodb_monitor.py > /dev/null)

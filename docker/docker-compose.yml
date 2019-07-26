@@ -5,6 +5,7 @@ services:
     container_name: agent
     volumes:
       - ../conf/:/mongomon/conf
+      - ../bin/:/mongomon/bin
     restart: always
     #stdin_open: true
     #tty: true

@@ -14,4 +14,4 @@ services:
 networks:
   solar:
     external:
-      name: solar_default
+      name: zws_network

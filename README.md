@@ -20,7 +20,7 @@ MongoDB performance monitor plugin for Open-Falcon
 
 3 replSetGetStatus
 
-4 oplog.rs 
+4 oplog.rs
 
 5 mongos
 
@@ -30,11 +30,13 @@ MongoDB performance monitor plugin for Open-Falcon
 ---------------
 操作系统: Linux
 
-Python 2.6
+Python == 2.7.18
 
-PyYAML > 3.10
+PyYAML == 5.1.1
 
-python-requests > 0.11
+python-requests >= 2.25.1
+
+pymongo == 3.11.3
 
 mongomon部署
 -------------------
@@ -42,7 +44,7 @@ mongomon部署
 
 2 配置当前服务器的MongoDB多实例(mongod,配置节点,mongos)信息,/path/to/mongomon/conf/mongomon.conf 每行记录一个实例: 端口，用户名，密码
 
--  {port: 27017, user: "",password: ""}
+- {port: 27017, user: "",password: ""}, 用户需要有config数据库的读取权限
 
 3 配置crontab, 修改mongomon/conf/mongomon_cron文件中mongomon安装path; cp mongomon_cron /etc/cron.d/ 
 
@@ -173,10 +175,7 @@ MongoDB falcon screen
 |PerconaFT_log_bytes|
 |PerconaFT_log_count|
 |PerconaFT_log_time|
-|PerconaFT_serializeTime_leaf_compress|
-|PerconaFT_serializeTime_leaf_decompress|              
-|PerconaFT_serializeTime_leaf_deserialize|
-|PerconaFT_serializeTime_leaf_serialize|
+|PerconaFT_serializeTime_leaf_compress|更新
 |PerconaFT_serializeTime_nonleaf_compress|
 |PerconaFT_serializeTime_nonleaf_decompress|
 |PerconaFT_serializeTime_nonleaf_deserialize|

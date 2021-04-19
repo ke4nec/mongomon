@@ -1,17 +1,23 @@
-version: "3.2"
+version: "3"
 services:
-  agent:
-    image: agent:latest
-    container_name: agent
+  monnitor:
+    image: monitor_mongodb:latest
+    container_name: monitor_mongodb
     volumes:
       - ../conf/:/mongomon/conf
       - ../bin/:/mongomon/bin
     restart: always
-    #stdin_open: true
-    #tty: true
-    networks:
-      - solar
-networks:
-  solar:
-    external:
-      name: zws_network
+    network_mode: "host"
+    depends_on:
+      - dns_proxy
+  dns_proxy:
+    image: defreitas/dns-proxy-server
+    container_name: dns_proxy
+    volumes:
+      - /opt/dns-proxy-server/conf:/app/conf
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/resolv.conf:/etc/resolv.conf
+    ports:
+      - 5380:5380
+    network_mode: "host"
+
